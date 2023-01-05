@@ -17,7 +17,7 @@
                     Notes
                 </header>
             </section>
-            @foreach ($notes as $note)
+            @forelse ($notes as $note)
                 <div class="w-full mt-3 bg-gray-100 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
                     <h2>{{ $note->title }}</h2>
                     <p class="text-gray-700 text-sm mt-2">
@@ -25,7 +25,9 @@
                     </p>
                     <span class="text-sm opacity-70 mt-4 block">{{ date('jS M Y', strtotime($note->updated_at)) }}</span>
                 </div>
-            @endforeach
+            @empty
+                <h2 class="text-5xl">No notes yet.</h2>
+            @endforelse
 
 
         </div>

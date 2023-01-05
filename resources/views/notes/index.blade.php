@@ -26,9 +26,13 @@
                     <span class="text-sm opacity-70 mt-4 block">{{ date('jS M Y', strtotime($note->updated_at)) }}</span>
                 </div>
             @empty
+
                 <h2 class="text-5xl">No notes yet.</h2>
             @endforelse
 
+            <div class="mt-3">
+                {{ $notes->links() }}
+            </div>
 
         </div>
     </main>

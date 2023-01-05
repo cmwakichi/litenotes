@@ -23,6 +23,7 @@
                     <p class="text-gray-700 text-sm mt-2">
                         {{ $note->text }}
                     </p>
+                    <span class="text-sm opacity-70 mt-4 block">{{ date('jS M Y', strtotime($note->updated_at)) }}</span>
                 </div>
             @endforeach
 

@@ -26,11 +26,16 @@
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
+
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
+                    <a href="{{ url('/notes') }}" class="text-lg font-semibold text-gray-100 no-underline">
+                        Notes
+                    </a>
                     @guest
                         <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @if (Route::has('register'))
-                            <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="no-underline hover:underline"
+                                href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
                     @else
                         <span>{{ Auth::user()->name }}</span>

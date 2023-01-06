@@ -7,10 +7,22 @@
                 <form action="/notes" method="POST">
                     @csrf
                     <input type="text" name="title" placeholder="Title..." autocomplete="off"
-                        class="w-full mb-3 outline-none">
-                    <textarea name="text" rows="10" placeholder="Text..." class="mb-3 w-full outline-none md:tracking-wide"></textarea>
+                        class="w-full mb-3 outline-none" required>
+                    <textarea name="text" rows="10" placeholder="Text..." class="mb-3 w-full outline-none md:tracking-wide"
+                        required></textarea>
                     <button type="submit" class="mt-6 rounded-md bg-blue-900 p-2">Save note</button>
                 </form>
+                <div>
+                    @if ($errors->any())
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <div>
+                                    <li>{{ $error }}</li>
+                                </div>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

@@ -15,6 +15,7 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
 </head>
 
 <body class="bg-white-700 h-screen antialiased leading-none font-sans">
@@ -53,6 +54,7 @@
 
         @yield('content')
     </div>
+    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
 </body>
 
 </html>

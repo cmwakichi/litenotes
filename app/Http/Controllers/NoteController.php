@@ -40,7 +40,15 @@ class NoteController extends Controller
      */
     public function store(Request $request, Note $note)
     {
-        //
+        $request->validate([
+            'title' => ['required', 'max:120'],
+            'text' => ['required']
+        ]);
+        $note->title = $request->title;
+        $note->text = $request->text;
+        $note->save();
+        session()->flash('message', 'Note saved');
+        return redirect('/');
     }
 
     /**

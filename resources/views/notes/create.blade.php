@@ -14,10 +14,10 @@
                 </form>
                 <div>
                     @if ($errors->any())
-                        <ul>
+                        <ul class="list-decimal">
                             @foreach ($errors->all() as $error)
                                 <div>
-                                    <li>{{ $error }}</li>
+                                    <li class="text-red-300 text-sm">{{ $error }}</li>
                                 </div>
                             @endforeach
                         </ul>

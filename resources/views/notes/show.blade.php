@@ -18,7 +18,7 @@
                 </header>
             </section>
             <div class="w-full mt-3 bg-gray-100 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                <h2>
+                <h2 class="text-2xl">
                     {{ $note->title }}
                 </h2>
                 <p class="text-gray-700 text-sm mt-2">

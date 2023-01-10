@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Note;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,6 +47,7 @@ class NoteController extends Controller
             'title' => ['required', 'max:120'],
             'text' => ['required']
         ]);
+        $note->uuid = Str::uuid();
         $note->user_id = $user_id;
         $note->title = $request->title;
         $note->text = $request->text;

@@ -25,6 +25,7 @@
                     <p class="opacity-70">
                         Updated at: {{ $note->updated_at->diffForHumans() }}
                     </p>
+                    <a href="{{ route('notes.edit', $note) }}" class="rounded-lg bg-blue-500 p-2 ">Edit note</a>
                 </div>
                 <h2 class="text-2xl">
                     {{ $note->title }}

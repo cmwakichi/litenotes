@@ -62,9 +62,9 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($uuid)
     {
-        $note = Note::where('id', '=', $id)->where('user_id', '=', Auth::id())->findOrFail($id);
+        $note = Note::where('uuid', '=', $uuid)->where('user_id', '=', Auth::id())->findOrFail($uuid);
 
         return view('notes.show')->with('note', $note);
     }

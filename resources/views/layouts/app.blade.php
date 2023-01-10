@@ -13,6 +13,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    !-- Alpine-js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
@@ -51,6 +54,11 @@
                 </nav>
             </div>
         </header>
+        @if (session('message'))
+            <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 2000)" x-show="show"
+                class="mb-4 px-4 py-2 mt-4 mx-2 bg-green-100 border border-green-200 text-green-700 rounded-md">
+                {{ session('message') }}</div>
+        @endif
 
         @yield('content')
     </div>

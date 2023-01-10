@@ -21,9 +21,7 @@
                 <h2 class="text-2xl">
                     {{ $note->title }}
                 </h2>
-                <p class="text-gray-700 text-sm mt-2">
-                    {{ $note->text }}
-                </p>
+                <p class="text-gray-700 text-sm mt-2 whitespace-pre-wrap">{{ $note->text }}</p>
             </div>
 
         </div>

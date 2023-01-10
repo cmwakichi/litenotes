@@ -64,7 +64,9 @@ class NoteController extends Controller
      */
     public function show(Note $note)
     {
-        //$note = Note::where('id', '=', $id)->where('user_id', '=', Auth::id())->findOrFail($id);
+        if ($note->user_id != Auth::id()) {
+            return abort(403);
+        }
 
         return view('notes.show')->with('note', $note);
     }

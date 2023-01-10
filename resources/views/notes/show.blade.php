@@ -29,6 +29,12 @@
                         <span class="hover:underline text-gray-900 hover:text-blue-500">Edit note</span>
 
                     </a>
+                    <form action="{{ route('notes.destroy', $note) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="bg-red-600 rounded-md p-2"
+                            onclick="confirm('Are you sure you want to delete the note?')">Delete</button>
+                    </form>
                 </div>
                 <h2 class="text-2xl">
                     {{ $note->title }}

@@ -95,12 +95,16 @@ class NoteController extends Controller
      */
     public function update(Request $request, Note $note)
     {
+
         $user_id = Auth::id();
 
         $request->validate([
             'title' => ['required', 'max:120'],
             'text' => ['required']
         ]);
+        if ($note->user_id != Auth::id()) {
+            return abort(403);
+        }
         $note->uuid = Str::uuid();
         $note->user_id = $user_id;
         $note->title = $request->title;

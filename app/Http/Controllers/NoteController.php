@@ -93,9 +93,21 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Note $note)
     {
-        //
+        $user_id = Auth::id();
+
+        $request->validate([
+            'title' => ['required', 'max:120'],
+            'text' => ['required']
+        ]);
+        $note->uuid = Str::uuid();
+        $note->user_id = $user_id;
+        $note->title = $request->title;
+        $note->text = $request->text;
+        $note->update();
+        session()->flash('message', 'Note updated');
+        return redirect('/notes');
     }
 
     /**

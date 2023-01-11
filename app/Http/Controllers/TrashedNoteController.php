@@ -35,4 +35,16 @@ class TrashedNoteController extends Controller
 
         return redirect('/notes')->with('note', $note);
     }
+
+    public function destroy(Note $note)
+    {
+        if (!Auth::user() == $note->user) {
+            return abort(403);
+        }
+        $note->forceDelete();
+
+        session()->flash('message', 'Note permanently deleted successfully');
+
+        return redirect('/notes');
+    }
 }

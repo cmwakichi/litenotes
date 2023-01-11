@@ -130,6 +130,6 @@ class NoteController extends Controller
 
         session()->flash('message', 'Note deleted');
 
-        redirect('/notes');
+        return redirect('/notes');
     }
 }

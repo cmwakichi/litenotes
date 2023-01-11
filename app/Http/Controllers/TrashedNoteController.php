@@ -17,6 +17,10 @@ class TrashedNoteController extends Controller
 
     public function show(Note $note)
     {
+        if ($note->user_id != Auth::id()) {
+            return abort(403);
+        }
+
         return view('notes.show')->with('note', $note);
     }
 }

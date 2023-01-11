@@ -19,22 +19,41 @@
             </section>
             <div class="w-full mt-3 bg-gray-100 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
                 <div class="flex space-x-4">
-                    <p class="opacity-70">
-                        Created: {{ $note->created_at->diffForHumans() }}
-                    </p>
-                    <p class="opacity-70">
-                        Updated at: {{ $note->updated_at->diffForHumans() }}
-                    </p>
-                    <a href="{{ route('notes.edit', $note) }}">
-                        <span class="hover:underline text-gray-900 hover:text-blue-500">Edit note</span>
+                    @if (!note->trashed())
+                        <p class="opacity-70">
+                            Created: {{ $note->created_at->diffForHumans() }}
+                        </p>
+                        <p class="opacity-70">
+                            Updated at: {{ $note->updated_at->diffForHumans() }}
+                        </p>
+                        <a href="{{ route('notes.edit', $note) }}">
+                            <span class="hover:underline text-gray-900 hover:text-blue-500">Edit note</span>
 
-                    </a>
-                    <form action="{{ route('notes.destroy', $note) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="bg-red-600 rounded-md p-2"
-                            onclick="confirm('Are you sure you want to delete the note?')">Move note to trash</button>
-                    </form>
+                        </a>
+                        <form action="{{ route('notes.destroy', $note) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-red-600 rounded-md p-2"
+                                onclick="confirm('Are you sure you want to delete the note?')">Move note to trash</button>
+                        </form>
+                    @else
+                        <p class="opacity-70">
+                            Deleted: {{ $note->deleted_at->diffForHumans() }}
+                        </p>
+                        <form action="{{ route('trashed.update', $note) }}" method="post">
+                            @csrf
+                            @method('put')
+                            <button type="submit" class="bg-red-600 rounded-md p-2">Restore note</button>
+                        </form>
+
+                        <form action="{{ route('trashed.destroy', $note) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-red-600 rounded-md p-2"
+                                onclick="confirm('Are you sure you want to permanently delete the note?Action cannot be undone.')">Delete
+                                permanently</button>
+                        </form>
+                    @endif
                 </div>
                 <h2 class="text-2xl">
                     {{ $note->title }}

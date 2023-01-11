@@ -23,4 +23,4 @@ Auth::routes();
 
 Route::resource('notes', 'NoteController')->middleware(['auth']);
 
-Route::get('/trashed', 'TrashedNoteController@index')->middleware('auth');
+Route::get('/trashed', 'TrashedNoteController@index')->middleware('auth')->name('trashed.index');

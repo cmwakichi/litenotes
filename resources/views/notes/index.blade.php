@@ -17,10 +17,12 @@
                     {{ request()->routeIs('notes.index') ? 'Notes' : 'Trash' }}
                 </header>
             </section>
-            <div class="mt-2 bg-indigo-700 rounded-sm  p-2 w-1/6 text-center">
-                <a href="{{ route('notes.create') }}" class="text-white-500">+ New note
-                </a>
-            </div>
+            @if (request()->routeIs('notes.index'))
+                <div class="mt-2 bg-indigo-700 rounded-sm  p-2 w-1/6 text-center">
+                    <a href="{{ route('notes.create') }}" class="text-white-500">+ New note
+                    </a>
+                </div>
+            @endif
             @forelse ($notes as $note)
                 <div class="w-full mt-3 bg-gray-100 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
                     <a href="{{ route('notes.show', $note) }}">{{ $note->title }}</a>

@@ -14,4 +14,9 @@ class TrashedNoteController extends Controller
 
         return view('notes.index')->with('notes', $notes);
     }
+
+    public function show(Note $note)
+    {
+        return view('notes.show')->with('note', $note);
+    }
 }

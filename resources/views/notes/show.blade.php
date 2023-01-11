@@ -19,7 +19,7 @@
             </section>
             <div class="w-full mt-3 bg-gray-100 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
                 <div class="flex space-x-4">
-                    @if (!note->trashed())
+                    @if (!$note->trashed())
                         <p class="opacity-70">
                             Created: {{ $note->created_at->diffForHumans() }}
                         </p>

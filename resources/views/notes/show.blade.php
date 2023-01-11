@@ -43,7 +43,7 @@
                         <form action="{{ route('trashed.update', $note) }}" method="post">
                             @csrf
                             @method('put')
-                            <button type="submit" class="bg-red-600 rounded-md p-2">Restore note</button>
+                            <button type="submit" class="bg-green-600 rounded-md p-2">Restore note</button>
                         </form>
 
                         <form action="{{ route('trashed.destroy', $note) }}" method="POST">

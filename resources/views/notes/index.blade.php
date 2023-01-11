@@ -14,7 +14,7 @@
             <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 
                 <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                    Notes
+                    {{ request()->routeIs('notes.index') ? 'Notes' : 'Trash' }}
                 </header>
             </section>
             <div class="mt-2 bg-indigo-700 rounded-sm  p-2 w-1/6 text-center">

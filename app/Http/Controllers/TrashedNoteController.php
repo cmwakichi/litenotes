@@ -10,8 +10,8 @@ class TrashedNoteController extends Controller
 {
     public function index()
     {
-        $trashednotes = Note::where('user_id', '=', Auth::id())->onlyTrashed()->latest('deteted_at')->paginate(10)->get();
+        $notes = Note::where('user_id', '=', Auth::id())->onlyTrashed()->latest('deteted_at')->paginate(10);
 
-        return view('trash.index')->with('trashednotes', $trashednotes);
+        return view('notes.index')->with('notes', $notes);
     }
 }

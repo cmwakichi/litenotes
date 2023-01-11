@@ -129,7 +129,7 @@ class NoteController extends Controller
 
         $note->delete();
 
-        session()->flash('message', 'Note deleted');
+        session()->flash('message', 'Note moved to trash');
 
         return redirect('/notes');
     }

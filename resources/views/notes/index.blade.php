@@ -25,7 +25,11 @@
             @endif
             @forelse ($notes as $note)
                 <div class="w-full mt-3 bg-gray-100 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                    <a href="{{ route('notes.show', $note) }}">{{ $note->title }}</a>
+                    @if (request()->routeIs('notes.index'))
+                        <a href="{{ route('notes.show', $note) }}">{{ $note->title }}</a>
+                    @else
+                        <a href="{{ route('trashed.show', $note) }}">{{ $note->title }}</a>
+                    @endif
                     <p class="text-gray-700 text-sm mt-2">
                         {{ Str::limit($note->text, 100, '...') }}
                     </p>

@@ -32,8 +32,11 @@
                 </div>
 
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
-                    <a href="{{ url('/notes') }}" class="text-lg font-semibold text-gray-100 no-underline">
+                    <a href="{{ route('notes.index') }}" class="text-lg font-semibold text-gray-100 no-underline">
                         Notes
+                    </a>
+                    <a href="{{ route('trashed.index') }}" class="text-lg font-semibold text-gray-100 no-underline">
+                        Trashed
                     </a>
                     @guest
                         <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>

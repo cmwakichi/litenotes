@@ -33,7 +33,7 @@
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="bg-red-600 rounded-md p-2"
-                            onclick="confirm('Are you sure you want to delete the note?')">Delete</button>
+                            onclick="confirm('Are you sure you want to delete the note?')">Move note to trash</button>
                     </form>
                 </div>
                 <h2 class="text-2xl">

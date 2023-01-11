@@ -32,8 +32,11 @@
                     <span class="text-sm opacity-70 mt-4 block">{{ date('jS M Y', strtotime($note->updated_at)) }}</span>
                 </div>
             @empty
-
-                <h2 class="text-5xl">No notes yet.</h2>
+                @if (request()->routeIs('notes.index'))
+                    <h2 class="text-5xl">No notes yet.</h2>
+                @else
+                    <h2 class="text-5xl">No items in the trash.</h2>
+                @endif
             @endforelse
 
             <div class="mt-3">

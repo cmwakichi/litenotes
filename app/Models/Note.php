@@ -15,4 +15,8 @@ class Note extends Model
     {
         return 'uuid';
     }
+    public function notes()
+    {
+        return $this->hasMany(Note::class, 'user_id', 'id');
+    }
 }
